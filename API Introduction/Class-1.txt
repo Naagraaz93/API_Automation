@@ -1,0 +1,186 @@
+Class-1
+=================================================
+
+===========================
+API TESTING - NOTES
+===========================
+
+1. Topics to Learn in API Testing
+--------------------------------
+- Basic API Testing
+- Postman Tool
+- Basic Concept of Java
+- Rest Assured
+- GraphQL for API Testing
+- BDD Cucumber
+- GitHub
+- Jenkins (CI/CD)
+- Performance Testing on API (JMeter)
+- Playwright API Testing
+- AI Tools for API Testing (e.g., Khuso AI)
+
+--------------------------------------------------
+
+2. What is API?
+---------------
+API stands for Application Programming Interface.
+
+It acts as a bridge between:
+- Frontend (UI/Application)
+- Backend (Server)
+
+In simple words:
+API allows two systems to communicate with each other.
+
+Example:
+When you use a mobile app, it sends a request to the server using API and gets a response.
+
+--------------------------------------------------
+
+3. How API Works (Real-Time Example)
+-----------------------------------
+Example: Ordering food in a hotel
+
+Customer → Waiter → Chef → Waiter → Customer
+
+Explanation:
+- Customer gives order (Request)
+- Waiter takes request to chef (API)
+- Chef prepares food (Processing)
+- Waiter brings food back (Response)
+
+Mapping:
+- Customer = Client
+- Waiter = API
+- Chef = Server
+
+--------------------------------------------------
+
+4. System Flow
+--------------
+Client ↔ Server ↔ Database
+
+- Client sends request to Server
+- Server processes request
+- Server interacts with Database
+- Server sends response back to Client
+
+--------------------------------------------------
+
+5. Real-Time API Example (Login System)
+--------------------------------------
+
+Scenario:
+User logs into an application (shopping app / social media)
+
+Step-by-Step Flow:
+
+[STEP 1]
+Client (Mobile App / Browser)
+    |
+    |  (HTTP Request - Login API)
+    v
+
+[STEP 2]
+Server (Backend)
+    |
+    |  Validate username & password
+    v
+
+[STEP 3]
+Database
+    |
+    |  Check user data
+    v
+
+[STEP 4]
+Server sends response
+    |
+    v
+
+[STEP 5]
+Client shows result (Login Success / Failed)
+
+---------------------------
+Diagram:
+---------------------------
+
+   +---------+        +---------+        +-----------+
+   | Client  | -----> | Server  | -----> | Database  |
+   | (App)   |        | (API)   |        |           |
+   +---------+        +---------+        +-----------+
+        ^                   |                   |
+        |                   |                   |
+        +-------------------+-------------------+
+                Response (Success / Failure)
+
+---------------------------
+API Request:
+---------------------------
+POST /login
+
+{
+  "username": "krishna",
+  "password": "12345"
+}
+
+---------------------------
+API Response:
+---------------------------
+
+Success:
+{
+  "status": 200,
+  "message": "Login successful"
+}
+
+Failure:
+{
+  "status": 401,
+  "message": "Invalid credentials"
+}
+
+---------------------------
+Tester Checks:
+---------------------------
+- Status Code (200, 401)
+- Response message
+- Response time
+- Invalid input handling
+- Security testing
+
+--------------------------------------------------
+
+6. What is Protocol?
+--------------------
+A protocol is a set of rules that define how data is sent and received between systems.
+
+In simple words:
+Protocol = Communication rules between client and server
+
+Real-Life Example:
+If two people speak the same language, they can communicate.
+If they speak different languages, communication fails.
+
+Same way, systems must follow the same protocol.
+
+--------------------------------------------------
+
+7. Common Protocols
+-------------------
+- HTTP / HTTPS (Used in API Testing)
+- FTP (File Transfer Protocol)
+- SMTP (Send Emails)
+- POP3 / IMAP (Receive Emails)
+
+--------------------------------------------------
+
+8. Important Note (What We Test in API)
+--------------------------------------
+- Request (Input)
+- Response (Output)
+- Status Codes (200, 201, 400, 500, etc.)
+- Data validation
+- Performance
+
+--------------------------------------------------

@@ -1,0 +1,182 @@
+Class-2
+===============================
+
+1. What is Protocol?
+--------------------
+A protocol is a set of rules that defines how data is sent and received between systems.
+
+In simple words:
+Protocol = Rules for communication between client and server
+
+Why protocols are used:
+- To ensure proper communication
+- To send/receive data in standard format
+
+Where protocols are used:
+- Websites
+- Mobile apps
+- Email systems
+- File transfer
+
+--------------------------------------------------
+
+2. Common Protocols (Full Form, Use & Purpose)
+---------------------------------------------
+
+HTTP (HyperText Transfer Protocol)
+- Use: Websites, APIs
+- Why: Transfer data between client & server
+
+HTTPS (HyperText Transfer Protocol Secure)
+- Use: Secure websites, banking, APIs
+- Why: Encrypted & secure communication
+
+FTP (File Transfer Protocol)
+- Use: File upload/download
+- Why: Transfer files between systems
+
+SFTP (Secure File Transfer Protocol)
+- Use: Secure file transfer
+- Why: Encrypted file transfer
+
+SMTP (Simple Mail Transfer Protocol)
+- Use: Sending emails
+- Why: Send mail from client to server
+
+POP3 (Post Office Protocol v3)
+- Use: Receive emails
+- Why: Download emails to device
+
+IMAP (Internet Message Access Protocol)
+- Use: Receive emails
+- Why: Sync emails across devices
+
+TCP (Transmission Control Protocol)
+- Use: Reliable communication
+- Why: Ensures data delivery
+
+IP (Internet Protocol)
+- Use: Network communication
+- Why: Identifies devices (IP address)
+
+DNS (Domain Name System)
+- Use: Internet navigation
+- Why: Convert domain → IP
+
+--------------------------------------------------
+
+3. HTTP vs HTTPS
+----------------
+
+HTTP:
+- Not secure
+- Data in plain text
+- Port: 80
+
+HTTPS:
+- Secure
+- Data encrypted (SSL/TLS)
+- Port: 443
+
+Real-time example:
+- HTTP → Normal website (can be hacked)
+- HTTPS → Banking, login, shopping (secure)
+
+--------------------------------------------------
+
+4. What is Web Service?
+-----------------------
+A Web Service allows communication between systems over internet using protocols like HTTP/HTTPS.
+
+Example:
+Weather app fetching data from server
+
+--------------------------------------------------
+
+5. API vs Web Service
+---------------------
+- All APIs are NOT Web Services
+- All Web Services are APIs
+
+Example:
+- Offline app API → Not web service
+- Online payment API → Web service
+
+--------------------------------------------------
+
+6. API Terminology
+----------------------------
+
+API Terminology-> Terminology means a set of important technical words (terms) used in a specific field.
+
+URI (Uniform Resource Identifier)
+- Identifies resource
+Example: /api/users
+
+URL (Uniform Resource Locator)
+- Full location of resource
+Example: https://req.in/api/users?page=2
+
+Difference:
+- URI → Only resource
+- URL → Full path
+
+--------------------------------------------------
+
+Headers->Additional details about the request/response
+- Extra info in request/response
+Example:
+Content-Type: application/json
+
+--------------------------------------------------
+
+Authentication-> Authentication means verifying who you are.
+- Who you are
+Example:
+Login with username/password
+
+--------------------------------------------------
+
+Authorization->Authorization means checking what you are allowed to access.
+- What you can access
+Example:
+Admin vs User access
+
+--------------------------------------------------
+
+--> Cookies are small pieces of data stored in the browser to remember user information.
+
+Cookies->Memory of the website in your browser
+- Store session data
+Example:
+Stay logged in
+
+--------------------------------------------------
+
+Method = Action (what you want to do with data)
+
+7. HTTP Methods --> An HTTP Method defines what action you want to perform on the server.
+----------------
+
+GET → Fetch data  
+POST → Create data  
+PUT → Update full data  
+PATCH → Update partial data  
+DELETE → Delete data  
+
+--------------------------------------------------
+
+8. Real-Time Example (Zomato/Swiggy)
+------------------------------------
+
+- Open app → API call
+- URL: /restaurants
+- GET → Fetch data
+- POST → Place order
+- HTTPS → Secure communication
+- Authorization → Only logged-in users order
+
+Flow:
+Client → API → Server → Database → Response → App
+
+--------------------------------------------------
