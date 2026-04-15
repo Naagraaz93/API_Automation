@@ -1,0 +1,157 @@
+Class 3
+
+====================================
+1. WHAT IS COOKIE?
+====================================
+Cookie = Small data stored in browser by server.
+
+Real-time example:
+When you login to Amazon, it remembers you. That is cookie.
+
+Advantages:
+- Stores user session
+- Improves user experience
+
+Disadvantages:
+- Security risk if not handled properly
+- Can be stolen (session hijacking)
+
+
+====================================
+2. WHAT IS HEADER?
+====================================
+Header = Extra information sent with request/response.
+
+Common Headers:
+- Accept → What response format client wants
+- User-Agent → Browser/device info
+- Authorization → Token or login info
+- Content-Type → Data type (JSON, XML)
+
+Real-time example:
+When you send API request in Postman, headers carry auth token.
+
+
+====================================
+3. WHAT IS STATUS CODE?
+====================================
+Status code = Server response number.
+
+It tells:
+Request success / failure / error
+
+
+====================================
+4. TYPES OF STATUS CODE WITH EXAMPLES
+====================================
+
+------------------------------------
+1XX Series → INFORMATIONAL
+------------------------------------
+100 → Continue  
+Example: Large file upload, server says continue sending data.
+
+101 → Switching Protocol  
+Example: HTTP to WebSocket (chat application).
+
+102 → Processing  
+Example: Report generation is in progress.
+
+
+------------------------------------
+2XX Series → SUCCESS
+------------------------------------
+200 → OK  
+Example: Login successful.
+
+201 → Created  
+Example: New user created.
+
+202 → Accepted  
+Example: Request accepted, processing later (email queue).
+
+203 → Non-Authoritative Information  
+Example: Data from cache/CDN.
+
+204 → No Content  
+Example: Delete API returns no data.
+
+
+------------------------------------
+3XX Series → REDIRECTION
+------------------------------------
+300 → Multiple Choices  
+Example: Multiple file formats available.
+
+301 → Moved Permanently  
+Example: Old API redirects to new API.
+
+
+------------------------------------
+4XX Series → CLIENT ERROR
+------------------------------------
+400 → Bad Request  
+Example: Invalid JSON or missing fields.
+
+401 → Unauthorized  
+Example: Token missing or invalid.
+
+402 → Payment Required  
+Example: Paid API without subscription.
+
+403 → Forbidden  
+Example: User logged in but no permission.
+
+404 → Not Found  
+Example: Wrong API endpoint.
+
+405 → Method Not Allowed  
+Example: Using GET instead of POST.
+
+
+------------------------------------
+5XX Series → SERVER ERROR
+------------------------------------
+500 → Internal Server Error  
+Example: Server crash or code bug.
+
+501 → Not Implemented  
+Example: API feature not developed yet.
+
+
+====================================
+5. IMPORTANT DIFFERENCE
+====================================
+400 → Bad request (wrong data)
+401 → Not authenticated (login required)
+403 → No permission
+
+
+====================================
+6. SIMPLE DIAGRAM
+====================================
+
+Client (Postman / Browser)
+        |
+        |  Request (API Call)
+        ↓
+---------------------------
+|        SERVER           |
+---------------------------
+        |
+        |  Response (Status Code + Data)
+        ↓
+Client gets response
+
+
+====================================
+7. REAL-TIME FLOW
+====================================
+
+Login API:
+
+Correct credentials → 200 OK  
+Wrong password → 401 Unauthorized  
+Wrong data → 400 Bad Request  
+Server issue → 500 Internal Server Error  
+
