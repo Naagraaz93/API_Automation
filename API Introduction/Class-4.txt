@@ -1,0 +1,157 @@
+Class-4
+
+--------------------------------------------------
+SERVER SIDE ERRORS
+--------------------------------------------------
+500 – Internal Server Error
+Meaning: Server crash or unexpected issue
+
+501 – Not Implemented
+Meaning: API method not available on server
+
+Real-time Example:
+User clicks "Place Order" → backend fails → 500 error
+
+
+--------------------------------------------------
+DIFFERENCE BETWEEN URL AND URI PATH
+--------------------------------------------------
+URL (Uniform Resource Locator)
+Full address of API (protocol + domain + path)
+Example:
+https://api.amazon.com/users/101
+
+URI Path
+Only the path part of URL
+Example:
+/users/101
+
+Real-time Example:
+Browser uses full URL
+Backend routing uses path
+
+
+--------------------------------------------------
+API ENDPOINT
+--------------------------------------------------
+Specific API access point
+
+Example:
+GET https://api.flipkart.com/products
+
+Endpoint:
+/products
+
+Real-time Example:
+/login → login API
+/orders → fetch orders
+
+
+--------------------------------------------------
+AUTHENTICATION VS AUTHORIZATION
+--------------------------------------------------
+Authentication (Who are you?)
+Verifies user identity (Login)
+
+Authorization (What can you do?)
+Checks permissions (Access control)
+
+Difference:
+Authentication = Identity check
+Authorization = Permission check
+
+Real-time Example:
+Login → Authentication
+Access admin panel → Authorization
+
+
+--------------------------------------------------
+TYPES OF API AUTHENTICATION
+--------------------------------------------------
+1. Basic Auth (username + password)
+2. Bearer Token (token in header)
+3. API Key (unique key)
+4. OAuth 2.0 (login with Google/Facebook)
+5. JWT (token with data)
+6. Digest Auth (secure basic auth)
+
+Real-time Examples:
+API Key → Google Maps API
+JWT → Login systems
+OAuth → Login with Google
+
+
+--------------------------------------------------
+WHAT IS PARAMETER
+--------------------------------------------------
+Parameter = Data sent in API request
+
+Example:
+/users?id=101
+
+Real-time Example:
+Searching user by ID
+
+
+--------------------------------------------------
+PATH PARAMETER
+--------------------------------------------------
+Inside URL path
+Used to identify specific resource
+
+Example:
+/users/101
+
+Real-time Example:
+GET /users/101 → fetch user details
+
+
+--------------------------------------------------
+QUERY PARAMETER
+--------------------------------------------------
+After ? in URL
+Used for filtering/search
+
+Example:
+/users?age=25
+
+Real-time Example:
+/products?brand=apple&price=50000
+
+
+--------------------------------------------------
+DIFFERENCE: PATH VS QUERY PARAMETER
+--------------------------------------------------
+Path Parameter:
+Used for specific resource
+Example: /users/101
+
+Query Parameter:
+Used for filtering
+Example: /users?age=25
+
+
+--------------------------------------------------
+DIFFERENCE: ENDPOINT VS PATH PARAMETER
+--------------------------------------------------
+Endpoint:
+API route
+Example: /users
+
+Path Parameter:
+Dynamic value in URL
+Example: /users/101
+
+
+--------------------------------------------------
+REAL-LIFE EXAMPLE (FLIPKART)
+--------------------------------------------------
+Product List:
+/products
+
+Specific Product:
+/products/123
+
+Filter Products:
+/products?brand=apple&price=50000
+
