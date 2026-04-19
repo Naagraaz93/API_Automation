@@ -1,0 +1,735 @@
+==================================================
+POSTMAN TOOL
+==================================================
+
+WHAT IS POSTMAN?
+--------------------------------------------------
+
+Postman is a tool used for API testing.
+
+It helps testers and developers to:
+
+- Send API requests
+- Check responses
+- Validate status codes
+- Test authentication
+- Save APIs in collections
+- Automate API testing
+
+Real-Time Example:
+Tester checks Login API in Postman before UI testing.
+
+==================================================
+STEPS TO DOWNLOAD AND INSTALL POSTMAN
+==================================================
+
+1. Open browser
+2. Search Postman
+3. Open official website
+4. Download latest version
+5. Install software
+6. Sign up / Login with email
+
+Real-Time Example:
+QA team installs Postman to test backend APIs.
+
+==================================================
+MAIN FEATURES OF POSTMAN
+==================================================
+
+1. Send HTTP Requests
+2. Save APIs in Collection
+3. Use Environment Variables
+4. Add Authorization
+5. Write Test Scripts
+6. Run Collection
+7. Mock Server
+8. Monitor APIs
+9. Flows
+10. Workspace Collaboration
+
+==================================================
+1. WHAT IS COLLECTION IN POSTMAN?
+==================================================
+
+Collection means folder where multiple APIs are stored.
+
+Used to organize APIs module wise.
+
+Example:
+
+User Module Collection
+- Login API
+- Register API
+- Forgot Password API
+- Profile API
+
+Order Module Collection
+- Create Order API
+- Cancel Order API
+- Order History API
+
+Real-Time Example:
+Project has 200 APIs, so collection helps manage easily.
+
+Benefits:
+- Easy to organize APIs
+- Easy to run multiple APIs
+- Easy to share with team
+
+==================================================
+2. WHAT IS ENVIRONMENT IN POSTMAN?
+==================================================
+
+Environment stores variables.
+
+Used when same API runs in Dev / QA / Prod.
+
+Example:
+
+base_url = https://dev.api.com
+token = abc123
+username = tester
+
+Use in API:
+
+{{base_url}}/users
+
+Real-Time Example:
+
+Dev:
+https://dev.api.com
+
+QA:
+https://qa.api.com
+
+Prod:
+https://prod.api.com
+
+Benefits:
+- No need to change URL manually
+- Easy switching environment
+- Reusable values
+
+==================================================
+3. WHAT IS MOCK SERVER IN POSTMAN?
+==================================================
+
+Mock Server gives dummy response when real backend is not ready.
+
+Example Response:
+
+{
+ name: Krishna
+ status: success
+}
+
+Real-Time Example:
+
+Frontend team needs response for UI testing,
+but backend API is not completed.
+
+So Mock Server is used.
+
+Benefits:
+- Frontend work continues
+- Saves project time
+- Early testing possible
+
+==================================================
+4. WHAT IS FLOWS IN POSTMAN?
+==================================================
+
+Postman Flows is a visual automation tool.
+
+Used to create API workflows using drag and drop blocks.
+
+No coding required.
+
+You can connect:
+
+- Requests
+- Conditions
+- Variables
+- Loops
+- Outputs
+
+Real-Time Example:
+
+Login API -> Get Token -> Use Token -> Get Profile
+
+Benefits:
+- Easy automation
+- Visual workflow
+- No scripting needed
+- Good for beginners
+
+==================================================
+5. WORKING WITH FLOW IN POSTMAN
+==================================================
+
+How to use Flow:
+
+1. Open Postman
+2. Click Flows
+3. Create New Flow
+4. Drag Request block
+5. Add Login API
+6. Add Variable block
+7. Connect next API
+8. Run Flow
+
+Real-Time Example:
+
+Step 1:
+POST /login
+
+Step 2:
+Token received
+
+Step 3:
+GET /profile using token
+
+Step 4:
+Display response
+
+Used in real projects for chained APIs.
+
+==================================================
+6. WHAT IS WORKSPACE IN POSTMAN?
+==================================================
+
+Workspace is a common area where team members work together.
+
+Used to store:
+
+- Collections
+- Environments
+- APIs
+- Mock Servers
+- Monitors
+
+Types of Workspace:
+
+1. Personal Workspace
+   Used by single user
+
+2. Team Workspace
+   Used by company team
+
+3. Public Workspace
+   Shared publicly
+
+Real-Time Example:
+
+QA team and Developer team use same workspace
+for project APIs.
+
+Benefits:
+- Easy collaboration
+- Shared collections
+- Team productivity
+
+==================================================
+7. WHAT IS API NETWORK IN POSTMAN?
+==================================================
+
+API Network is a public library in Postman
+where companies publish APIs, templates,
+collections, and documentation.
+
+You can discover ready APIs and use directly.
+
+Examples Available:
+
+- Twitter API
+- PayPal API
+- Stripe API
+- Weather API
+
+Real-Time Example:
+
+Tester wants Weather API testing.
+
+Open API Network -> Search Weather API ->
+Import Collection -> Test APIs
+
+Benefits:
+- Ready collections
+- Public documentation
+- Saves time
+- Learn real APIs
+
+==================================================
+8. WHAT IS REQUEST IN POSTMAN?
+==================================================
+
+Request means API call sent to server.
+
+Contains:
+
+- Method (GET/POST/PUT/PATCH/DELETE)
+- URL
+- Headers
+- Body
+- Authorization
+
+Example:
+
+POST /login
+
+Body:
+{
+ email: test@gmail.com
+ password: 123456
+}
+
+==================================================
+9. WHAT IS RESPONSE IN POSTMAN?
+==================================================
+
+Response is data returned from server.
+
+Contains:
+
+- Status Code
+- Response Body
+- Headers
+- Response Time
+
+Example:
+
+200 OK
+
+{
+ token: abc123
+ message: Login Success
+}
+
+==================================================
+10. AUTHORIZATION IN POSTMAN
+==================================================
+
+Used when API needs security/login.
+
+Types:
+
+- Bearer Token
+- Basic Auth
+- API Key
+- OAuth 2.0
+
+Real-Time Example:
+
+Login API gives token.
+
+Use token in next APIs.
+
+Authorization:
+
+Bearer abc123token
+
+==================================================
+11. HEADERS IN POSTMAN
+==================================================
+
+Headers send extra information.
+
+Common Headers:
+
+Content-Type: application/json
+Authorization: Bearer token
+
+Real-Time Example:
+POST API with JSON body needs Content-Type header.
+
+==================================================
+12. BODY IN POSTMAN
+==================================================
+
+Body means data sent in POST/PUT/PATCH request.
+
+Example:
+
+{
+ name: Krishna
+ city: Delhi
+}
+
+Real-Time Example:
+Signup form data sent in body.
+
+==================================================
+13. TEST SCRIPT IN POSTMAN
+==================================================
+
+Used to validate response automatically.
+
+Example:
+
+pm.response.to.have.status(200);
+
+Real-Time Example:
+Tester runs Login API and checks success automatically.
+
+==================================================
+14. RUNNER IN POSTMAN
+==================================================
+
+Collection Runner runs many APIs together.
+
+Real-Time Example:
+Run complete smoke API suite in one click.
+
+==================================================
+15. REAL PROJECT EXAMPLE
+==================================================
+
+E-commerce Project:
+
+1. Login API
+POST /login
+
+2. Get Products
+GET /products
+
+3. Add Cart
+POST /cart
+
+4. Update Address
+PATCH /address
+
+5. Place Order
+POST /order
+
+Tester tests all APIs in Postman.
+
+==================================================
+INTERVIEW QUESTIONS
+==================================================
+
+Q1. What is Postman?
+--------------------------------------------------
+
+Answer:
+
+Postman is an API testing tool used by testers
+and developers to send requests and verify responses.
+
+We can test:
+
+- GET API
+- POST API
+- PUT API
+- DELETE API
+- Authentication
+- Automation
+
+Real-Time Example:
+
+Company has Login API.
+
+Tester opens Postman and sends:
+
+POST /login
+
+Body:
+{
+ email: test@gmail.com
+ password: 123456
+}
+
+Checks:
+- Status code = 200
+- Token generated
+- Login success message
+
+--------------------------------------------------
+
+Q2. What is Collection in Postman?
+--------------------------------------------------
+
+Answer:
+
+Collection is a folder where multiple APIs are saved.
+
+Used to organize APIs module wise.
+
+Real-Time Example:
+
+E-commerce project:
+
+User Collection:
+- Login API
+- Register API
+- Profile API
+
+Cart Collection:
+- Add Cart API
+- Remove Cart API
+
+Benefits:
+- Easy management
+- Easy sharing
+- Easy execution
+
+--------------------------------------------------
+
+Q3. What is Environment in Postman?
+--------------------------------------------------
+
+Answer:
+
+Environment stores variables like URL,
+token, username, password etc.
+
+Real-Time Example:
+
+Dev Environment:
+
+base_url = https://dev.api.com
+
+QA Environment:
+
+base_url = https://qa.api.com
+
+Use:
+
+{{base_url}}/login
+
+Tester changes only environment,
+API works everywhere.
+
+Benefits:
+- No manual URL change
+- Reusable values
+
+--------------------------------------------------
+
+Q4. What is Mock Server in Postman?
+--------------------------------------------------
+
+Answer:
+
+Mock Server gives dummy response when
+real backend API is not ready.
+
+Real-Time Example:
+
+Frontend team needs response for login screen.
+
+Backend not completed.
+
+Mock response:
+
+{
+ token: abc123
+ message: success
+}
+
+Frontend team continues work.
+
+Benefits:
+- Saves time
+- Parallel work possible
+
+--------------------------------------------------
+
+Q5. What is Flow in Postman?
+--------------------------------------------------
+
+Answer:
+
+Flow is a visual automation feature.
+
+Used to connect APIs using drag-drop blocks.
+
+Real-Time Example:
+
+Login API --> Get Token --> Profile API
+
+Step 1:
+POST /login
+
+Step 2:
+Token generated
+
+Step 3:
+GET /profile using token
+
+Benefits:
+- No coding
+- Easy workflow automation
+
+--------------------------------------------------
+
+Q6. What is Workspace in Postman?
+--------------------------------------------------
+
+Answer:
+
+Workspace is a shared place where teams
+manage APIs together.
+
+Types:
+
+- Personal Workspace
+- Team Workspace
+- Public Workspace
+
+Real-Time Example:
+
+Developer creates collection.
+
+Tester uses same collection in team workspace.
+
+Benefits:
+- Easy collaboration
+- Shared data
+
+--------------------------------------------------
+
+Q7. What is API Network in Postman?
+--------------------------------------------------
+
+Answer:
+
+API Network is public API library inside Postman.
+
+Contains:
+
+- Public APIs
+- Templates
+- Collections
+- Documentation
+
+Real-Time Example:
+
+Tester wants weather API testing.
+
+Open API Network
+Search Weather API
+Import collection
+Start testing
+
+Benefits:
+- Learn real APIs
+- Saves time
+
+--------------------------------------------------
+
+Q8. What is Runner in Postman?
+--------------------------------------------------
+
+Answer:
+
+Runner executes complete collection automatically.
+
+Real-Time Example:
+
+100 smoke test APIs need testing.
+
+Instead of one by one,
+run all using Runner.
+
+Benefits:
+- Saves time
+- Bulk execution
+
+--------------------------------------------------
+
+Q9. What is Authorization in Postman?
+--------------------------------------------------
+
+Answer:
+
+Authorization gives secure access to APIs.
+
+Types:
+
+- Bearer Token
+- Basic Auth
+- API Key
+
+Real-Time Example:
+
+Login API gives token:
+
+abc123xyz
+
+Use in next request:
+
+Authorization:
+Bearer abc123xyz
+
+--------------------------------------------------
+
+Q10. What is Test Script in Postman?
+--------------------------------------------------
+
+Answer:
+
+Test script validates response automatically.
+
+Example:
+
+pm.response.to.have.status(200);
+
+Real-Time Example:
+
+Tester runs Login API.
+
+Postman automatically checks:
+
+- Status code = 200
+- Token exists
+- Response time good
+
+--------------------------------------------------
+
+Q11. Difference Between PUT and PATCH?
+--------------------------------------------------
+
+Answer:
+
+PUT = Full update
+PATCH = Partial update
+
+Real-Time Example:
+
+PUT /users/1
+
+{
+ name: Rahul
+ city: Delhi
+ phone: 999999999
+}
+
+PATCH /users/1
+
+{
+ city: Mumbai
+}
+
+--------------------------------------------------
+
+Q12. Why Use Postman in Testing?
+--------------------------------------------------
+
+Answer:
+
+Used for:
+
+- Fast API testing
+- Easy debugging
+- Automation
+- Team sharing
+- Security testing
+
+Real-Time Example:
+
+Before frontend ready,
+tester tests backend APIs in Postman.
+
+==================================================
+

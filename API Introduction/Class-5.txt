@@ -1,0 +1,343 @@
+API RESPONSE CODES (SERVER SIDE ERRORS)
+
+500 - Internal Server Error
+Meaning:
+Server crashed or unexpected issue happened.
+
+Real-Time Example:
+Payment API called but backend failed.
+
+--------------------------------
+
+501 - Not Implemented
+Meaning:
+Requested method is not supported by server.
+
+Real-Time Example:
+API supports GET only but user sent POST.
+
+--------------------------------
+
+502 - Bad Gateway
+Meaning:
+One server got invalid response from another server.
+
+Real-Time Example:
+Frontend server called payment gateway but wrong response came.
+
+--------------------------------
+
+503 - Service Unavailable
+Meaning:
+Server is temporarily unavailable.
+
+Real-Time Example:
+Website under maintenance.
+
+--------------------------------
+
+504 - Gateway Timeout
+Meaning:
+Server waited too long for another server response.
+
+Real-Time Example:
+Order API waiting for inventory server but no response.
+
+================================
+WHAT IS HTTP METHOD?
+================================
+
+HTTP Method means what action client wants to perform on server/API.
+
+When we send request to API, we use methods like:
+
+GET     = Read / Fetch data
+POST    = Create new data
+PUT     = Update full data
+PATCH   = Update partial data
+DELETE  = Delete data
+HEAD    = Get headers only
+OPTIONS = Check supported methods
+
+Real-Time Flow:
+
+Client ---> Request + Method ---> Server
+Client <--- Response ---------- Server
+
+Example:
+If you open product page = GET
+If you signup = POST
+If you edit profile = PUT/PATCH
+If you delete account = DELETE
+
+==================================================
+1. GET METHOD
+==================================================
+
+Meaning:
+Used to fetch data from server.
+
+Data read karne ke liye use hota hai.
+
+Example:
+GET /users/1
+
+Response:
+{
+ id: 1
+ name: Krishna
+}
+
+Real-Time Examples:
+
+1. Amazon product details open
+2. Flipkart search products
+3. Instagram profile open
+4. Bank transaction history view
+5. Employee details fetch
+
+Tester Check:
+- Status code 200
+- Correct data returned
+- Response time good
+
+--------------------------------------------------
+
+2. POST METHOD
+==================================================
+
+Meaning:
+Used to create new data on server.
+
+Example:
+POST /users
+
+Body:
+{
+ name: Rahul
+ email: rahul@gmail.com
+}
+
+Real-Time Examples:
+
+1. Signup form submit
+2. Login API
+3. Add product to database
+4. Place new order
+5. Create support ticket
+
+Tester Check:
+- Status code 201 or 200
+- New record created
+- Validation messages correct
+
+--------------------------------------------------
+
+3. PUT METHOD
+==================================================
+
+Meaning:
+Used to update full existing record.
+
+Whole object replace/update hota hai.
+
+Example:
+PUT /users/1
+
+Body:
+{
+ name: Amit
+ city: Delhi
+ phone: 9999999999
+}
+
+Real-Time Examples:
+
+1. Update full employee profile
+2. Replace customer address details
+3. Update complete product information
+4. Save complete user settings
+
+Tester Check:
+- Old data replaced
+- New data saved
+- Status code 200
+
+Difference:
+PUT me full data bhejna padta hai.
+
+--------------------------------------------------
+
+4. PATCH METHOD
+==================================================
+
+Meaning:
+Used to update partial data only.
+
+Example:
+PATCH /users/1
+
+Body:
+{
+ city: Mumbai
+}
+
+Real-Time Examples:
+
+1. Change only mobile number
+2. Update only password
+3. Change profile picture
+4. Update order status only
+5. Change user city only
+
+Tester Check:
+- Only requested field updated
+- Other fields same remain
+
+Difference:
+PATCH me sirf changed field bhejte hain.
+
+--------------------------------------------------
+
+5. DELETE METHOD
+==================================================
+
+Meaning:
+Used to remove record from server.
+
+Example:
+DELETE /users/1
+
+Real-Time Examples:
+
+1. Remove cart item
+2. Delete account
+3. Delete employee record
+4. Delete comment on post
+5. Cancel saved address
+
+Tester Check:
+- Record deleted
+- Status code 200 / 204
+- Cannot fetch again
+
+--------------------------------------------------
+
+6. HEAD METHOD
+==================================================
+
+Meaning:
+Same as GET but response body nahi aata.
+Only headers aate hain.
+
+Example:
+HEAD /users
+
+Response Headers:
+Content-Type: application/json
+Content-Length: 500
+
+Real-Time Examples:
+
+1. Check file exists or not
+2. Check API active or not
+3. Check content size before download
+4. Validate cache headers
+
+Tester Check:
+- Body empty
+- Headers correct
+
+--------------------------------------------------
+
+7. OPTIONS METHOD
+==================================================
+
+Meaning:
+Checks which methods are allowed on API.
+
+Example:
+OPTIONS /users
+
+Response:
+Allow: GET, POST, PUT, DELETE
+
+Real-Time Examples:
+
+1. Browser preflight request in CORS
+2. Tester checking supported methods
+3. Security testing
+
+Tester Check:
+- Allowed methods correct
+- Unauthorized methods blocked
+
+--------------------------------------------------
+
+INTERVIEW IMPORTANT DIFFERENCE
+==================================================
+
+GET vs POST
+GET = Fetch data
+POST = Create data
+
+PUT vs PATCH
+PUT = Full update
+PATCH = Partial update
+
+DELETE vs GET
+DELETE removes data
+GET reads data
+
+--------------------------------------------------
+
+REAL PROJECT EXAMPLE
+==================================================
+
+E-commerce Website:
+
+1. View Product
+GET /products/101
+
+2. Signup User
+POST /users
+
+3. Update Address
+PATCH /users/1/address
+
+4. Replace Profile
+PUT /users/1
+
+5. Remove Cart Item
+DELETE /cart/5
+
+--------------------------------------------------
+
+SHORT MEMORY TRICK
+==================================================
+
+G = Get data
+P = Post new
+P = Put full
+P = Patch partial
+D = Delete
+H = Header
+O = Options
+
+--------------------------------
+
+INTERVIEW QUESTIONS
+
+Q1. Why use Collection?
+Ans:
+To organize APIs.
+
+Q2. Why use Environment?
+Ans:
+To manage URL, token, variables.
+
+Q3. Why use Mock Server?
+Ans:
+To test when backend is not ready.
+
+================================
