@@ -1,0 +1,378 @@
+INDEX
+--------------------------------------------------
+1. Postman Basics
+2. HTTP Methods
+3. Scripting in Postman
+4. Assertions
+5. JSON Response Handling
+6. Postman Validation Scripts
+7. What is PM Object
+8. Most Used PM Commands
+9. Real Time API Example
+10. Company Scenario
+
+==================================================
+1. POSTMAN BASICS
+==================================================
+
+1.1 WHAT IS FLOWS IN POSTMAN?
+--------------------------------------------------
+Postman Flows is a visual automation tool.
+
+Used to create API workflows using drag and drop.
+
+Real-Time Example:
+Login API -> Get Token -> Use Token -> Get Profile
+
+Benefits:
+- No coding
+- Easy automation
+- Better understanding
+
+
+1.2 WHAT IS WORKSPACE IN POSTMAN?
+--------------------------------------------------
+Workspace is a place where team stores:
+
+- Collections
+- Requests
+- Environments
+- APIs
+
+Real-Time Example:
+Project Name: Ecommerce API
+
+Inside Workspace:
+- Login APIs
+- Order APIs
+- Payment APIs
+
+Benefits:
+- Team collaboration
+- Easy sharing
+- Central management
+
+
+1.3 WHAT IS API NETWORK?
+--------------------------------------------------
+API Network is Postman public hub where users
+can find public APIs and collections.
+
+Real-Time Example:
+Need Weather API for practice.
+
+Search -> Import -> Test directly
+
+
+==================================================
+2. HTTP METHODS
+==================================================
+
+2.1 HEAD METHOD
+--------------------------------------------------
+HEAD method is same as GET but returns only headers.
+
+Real-Time Example:
+Before downloading file company checks size.
+
+HEAD /report.pdf
+
+Response:
+- Status = 200
+- Content-Length = 20MB
+
+No response body.
+
+
+2.2 DIFFERENCE BETWEEN GET AND HEAD
+--------------------------------------------------
+
+GET:
+- Returns Headers + Body
+- Used to fetch data
+
+HEAD:
+- Returns only Headers
+- Used for checking availability
+
+
+2.3 DIFFERENCE BETWEEN PUT AND PATCH
+--------------------------------------------------
+
+PUT:
+Update complete record
+
+PATCH:
+Update partial record
+
+
+==================================================
+3. SCRIPTING IN POSTMAN
+==================================================
+
+3.1 WHAT IS SCRIPT?
+--------------------------------------------------
+Script means JavaScript code used in Postman.
+
+Used for:
+- Validation
+- Token handling
+- Dynamic values
+
+
+3.2 TYPES OF SCRIPT
+--------------------------------------------------
+
+1. Pre-request Script
+2. Test Script
+
+
+3.3 PRE-REQUEST SCRIPT
+--------------------------------------------------
+Runs before request.
+
+Use:
+- Generate token
+- Random email
+- Timestamp
+
+Example:
+
+pm.environment.set("token","12345");
+
+
+3.4 TEST SCRIPT / POST RESPONSE SCRIPT
+--------------------------------------------------
+Runs after response received.
+
+Used for validation.
+
+
+3.5 DIFFERENCE BETWEEN PRE-REQUEST AND TEST SCRIPT
+--------------------------------------------------
+
+Pre-request Script:
+- Runs before request
+- Prepare data
+
+Test Script:
+- Runs after request
+- Validate response
+
+
+==================================================
+4. ASSERTIONS
+==================================================
+
+4.1 WHAT IS ASSERTION?
+--------------------------------------------------
+Assertion means compare expected result with actual result.
+
+Example:
+
+Expected Status = 200
+Actual Status = 200
+
+Result = Pass
+
+
+4.2 WHAT IS CHAI ASSERTION?
+--------------------------------------------------
+Chai is assertion library used in Postman.
+
+Examples:
+
+pm.expect(200).to.eql(200);
+
+pm.expect("Krishna").to.include("Krish");
+
+
+==================================================
+5. JSON RESPONSE HANDLING
+==================================================
+
+5.1 HOW TO FETCH DATA FROM JSON RESPONSE
+--------------------------------------------------
+
+Use:
+
+var jsonData = pm.response.json();
+
+
+5.2 JSON PATH EXAMPLES
+--------------------------------------------------
+
+jsonData.page = 1
+
+jsonData.data[0].first_name = George
+
+jsonData.data[1].email = janet.weaver@reqres.in
+
+jsonData.support.url = Support link
+
+jsonData._meta.docs_url = Documentation URL
+
+
+==================================================
+6. POSTMAN VALIDATION SCRIPTS
+==================================================
+
+6.1 STATUS CODE VALIDATION
+--------------------------------------------------
+
+pm.test("Validate Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+
+6.2 RESPONSE TIME VALIDATION
+--------------------------------------------------
+
+pm.test("Response time is less than 3000ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(3000);
+});
+
+
+6.3 HEADER VALIDATION
+--------------------------------------------------
+
+pm.test("Content-Type is present", function () {
+    pm.response.to.have.header("Content-Type");
+});
+
+
+6.4 FIRST NAME VALIDATION
+--------------------------------------------------
+
+pm.test("Check first name", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.data[0].first_name).to.eql("George");
+});
+
+
+6.5 SUPPORT URL VALIDATION
+--------------------------------------------------
+
+pm.test("Validate Support URL", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.support.url).to.eql("Expected URL");
+});
+
+
+6.6 DOCS URL VALIDATION
+--------------------------------------------------
+
+pm.test("Validate Docs URL", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData._meta.docs_url).to.eql("Expected Docs URL");
+});
+
+
+==================================================
+7. WHAT IS PM OBJECT?
+==================================================
+
+pm = Postman Object
+
+It is a built-in JavaScript object provided by Postman.
+
+Used to access:
+
+- Request data
+- Response data
+- Headers
+- Variables
+- Environment values
+- Test assertions
+
+Simple Meaning:
+
+pm helps you control and validate API request/response.
+
+
+Examples:
+
+pm.response
+= Current API response
+
+pm.request
+= Current API request
+
+pm.environment
+= Environment variables
+
+
+==================================================
+8. MOST USED PM COMMANDS
+==================================================
+
+pm.response.code
+= Status code
+
+pm.response.json()
+= Response body as JSON
+
+pm.response.responseTime
+= Response time
+
+pm.request.url
+= Current request URL
+
+pm.environment.set("token","123")
+
+pm.environment.get("token")
+
+pm.test("name", function(){})
+
+pm.expect(value).to.eql()
+
+
+==================================================
+9. REAL TIME API EXAMPLE
+==================================================
+
+LIBRARY API
+
+Base URL:
+http://216.10.245.166
+
+Resource:
+Library/Addbook.php
+
+Method:
+POST
+
+Body:
+{
+ "name":"API Testing",
+ "isbn":"QA",
+ "aisle":"101",
+ "author":"Krishna"
+}
+
+Expected Response:
+{
+ "Msg":"successfully added",
+ "ID":"QA101"
+}
+
+
+==================================================
+10. REAL COMPANY SCENARIO
+==================================================
+
+Project: Ecommerce Website
+
+APIs:
+1. Login API
+2. Product API
+3. Add to Cart API
+4. Payment API
+5. Order History API
+
+Tester Responsibilities:
+- Validate status code
+- Validate response body
+- Validate token
+- Check response time
+- Negative testing
