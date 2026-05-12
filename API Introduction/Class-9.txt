@@ -1,0 +1,309 @@
+POSTMAN VARIABLES 
+==============================================
+
+
+1. WHAT IS A VARIABLE?
+----------------------
+A variable is a container (placeholder) used to store data.
+
+Simple meaning:
+Instead of writing the actual value again and again, we store it in a variable and reuse it.
+
+Example (WITHOUT variable):
+https://reqres.in/api/users?page=2
+
+Example (WITH variable):
+{{base_url}}{{path}}?{{query}}
+
+Where:
+base_url = https://reqres.in
+path = /api/users
+query = page=2
+
+
+WHY VARIABLES ARE IMPORTANT:
+---------------------------
+1. Avoid hardcoding
+2. Reusability
+3. Easy environment switching (QA, UAT, PROD)
+4. Clean and maintainable scripts
+
+
+
+2. UNDERSTANDING WITH REAL LIFE EXAMPLE
+---------------------------------------
+Think of variable like a "container label"
+
+Bottle label = "Water"
+Inside = actual water
+
+Same:
+Variable name = base_url
+Value = https://reqres.in
+
+
+
+3. TYPES OF VARIABLES (VERY IMPORTANT)
+--------------------------------------
+
+There are 5 main types:
+
+
+--------------------------------------
+1. GLOBAL VARIABLE
+--------------------------------------
+Scope: Entire workspace
+
+Meaning:
+You can use it anywhere in all collections and requests.
+
+When to use:
+- Common values used everywhere
+
+Example:
+base_url = https://reqres.in
+
+
+HOW TO CREATE:
+1. Click Eye Icon (top right)
+2. Click "Add"
+3. Enter:
+   Name: base_url
+   Value: https://reqres.in
+4. Save
+
+
+--------------------------------------
+2. ENVIRONMENT VARIABLE
+--------------------------------------
+Scope: Specific environment
+
+Meaning:
+Different values for different environments (QA, UAT, PROD)
+
+REAL PROJECT EXAMPLE:
+QA  → https://qa.api.com
+UAT → https://uat.api.com
+PROD → https://api.com
+
+
+HOW TO CREATE (STEP BY STEP):
+1. Click "Environments"
+2. Click "Create New"
+3. Name: QA
+4. Add variable:
+   base_url = https://reqres.in
+5. Save
+6. Select environment (top right dropdown)
+
+
+WHY IMPORTANT:
+Switch environment → all APIs change automatically
+
+
+
+--------------------------------------
+3. COLLECTION VARIABLE
+--------------------------------------
+Scope: Inside one collection only
+
+Meaning:
+Used only within a collection
+
+Example:
+token = abc123
+
+
+HOW TO CREATE:
+1. Open Collection
+2. Click "Variables" tab
+3. Add variable
+4. Save
+
+
+
+--------------------------------------
+4. LOCAL VARIABLE
+--------------------------------------
+Scope: Only for one request execution
+
+IMPORTANT:
+- Cannot create via UI
+- Created using JavaScript
+
+HOW TO CREATE:
+Go to "Pre-request Script" tab:
+
+pm.variables.set("user_id", 101);
+
+
+WHEN TO USE:
+Temporary values during execution
+
+
+
+--------------------------------------
+5. DATA VARIABLE (EXTERNAL)
+--------------------------------------
+Scope: Used in Collection Runner
+
+Used for:
+Data Driven Testing
+
+Example CSV:
+username,password
+user1,pass1
+user2,pass2
+
+
+
+4. VARIABLE PRIORITY (INTERVIEW QUESTION)
+------------------------------------------
+If same variable name exists in multiple places:
+
+Priority:
+Local > Data > Environment > Collection > Global
+
+Example:
+Global → username = global_user
+Environment → username = env_user
+Local → username = local_user
+
+Final value used = local_user
+
+(Remember: nearest scope wins)
+
+
+
+5. HOW TO USE VARIABLES
+-----------------------
+
+SYNTAX:
+{{variable_name}}
+
+Example:
+{{base_url}}/api/users?page={{page}}
+
+
+
+6. STEP BY STEP REAL TIME FLOW
+------------------------------
+
+SCENARIO: LOGIN API → GET TOKEN → USE IN NEXT API
+
+STEP 1: Login API
+-----------------
+Send login request
+
+Go to "Tests" tab:
+
+let response = pm.response.json();
+pm.environment.set("auth_token", response.token);
+
+
+STEP 2: Use Token in Next API
+-----------------------------
+Go to Headers:
+
+Authorization: Bearer {{auth_token}}
+
+Now token is reused automatically
+
+
+
+7. HOW TO ACCESS VARIABLES IN SCRIPT
+------------------------------------
+
+GET VALUE:
+pm.environment.get("base_url");
+pm.collectionVariables.get("token");
+pm.variables.get("user_id");
+
+
+SET VALUE:
+pm.environment.set("token", "abc123");
+pm.global.set("base_url", "https://reqres.in");
+
+
+
+8. DYNAMIC VALUE (REAL PROJECT USE)
+-----------------------------------
+
+Generate unique email:
+
+pm.environment.set("email", "user_" + Date.now() + "@test.com");
+
+Why?
+- Avoid duplicate data error
+
+
+
+9. DATA DRIVEN TESTING STEP BY STEP
+-----------------------------------
+
+STEP 1: Create CSV
+------------------
+username,password
+user1,pass1
+user2,pass2
+
+
+STEP 2: Use in request body
+---------------------------
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+
+STEP 3: Run Collection
+----------------------
+- Click Runner
+- Upload CSV
+- Run
+
+Each row runs separately
+
+
+
+10. COMMON MISTAKES (IMPORTANT)
+-------------------------------
+1. Not selecting environment
+2. Wrong variable name
+3. Using same variable name in multiple scopes
+4. Hardcoding instead of variables
+
+
+
+11. BEST PRACTICES (REAL EXPERIENCE)
+------------------------------------
+1. Use Environment variables for URLs
+2. Use Collection variables for tokens
+3. Avoid Global variables (hard to manage)
+4. Use meaningful names:
+   base_url ✔
+   x ❌
+5. Never store passwords in Global variables
+
+
+
+12. QUICK REVISION
+------------------
+Variable = placeholder
+
+Syntax = {{variable}}
+
+Types:
+- Global
+- Environment
+- Collection
+- Local
+- Data
+
+Priority:
+Local > Data > Env > Collection > Global
+
+Used for:
+- Reusability
+- Config management
+- Automation
